@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="nav-group">
+          <button id="backBtn" class="icon-btn" title="Back">←</button>
+          <button id="forwardBtn" class="icon-btn" title="Forward">→</button>
+          <button id="reloadBtn" class="icon-btn" title="Reload">↻</button>
+        </div>
+
+        <div class="toolbar-search">
+          <div class="search-box">
+            <span class="search-icon">⌕</span>
+            <input id="addressBar" type="text" placeholder="Search the web or type a URL" value="https://www.google.com" />
+          </div>
+          <button id="goBtn" class="primary-btn">Go</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="browser-panel">
+          <div class="browser-header">
+            <div class="browser-topics">
+              <button class="topic active" data-engine="Google">Google</button>
+              <button class="topic" data-engine="DuckDuckGo">DuckDuckGo</button>
+              <button class="topic" data-engine="Bing">Bing</button>
+            </div>
+          </div>
+
+          <webview id="browserView" src="https://www.google.com" autosize="on"></webview>
+        </section>
+
+        <aside class="ai-panel">
+          <div class="ai-header">
+            <div>
+              <p class="eyebrow">AI assistant</p>
+              <h2>Smart Search</h2>
+            </div>
+            <button id="askBtn" class="primary-btn small">Ask</button>
+          </div>
+
+          <div class="ai-query">
+            <label for="aiInput">Search anything</label>
+            <div class="ai-form">
+              <input id="aiInput" type="text" placeholder="Ask for a summary, facts, or a web search..." />
+              <button id="aiSearchBtn" class="primary-btn small">Search</button>
+            </div>
+          </div>
+
+          <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Thinking...</span>
+          </div>
+
+          <div class="answer-card">
+            <h3>AI Result</h3>
+            <div id="aiAnswer" class="ai-answer">
+              Search for anything to get an instant answer and summary from web results.
+            </div>
+          </div>
+
+          <div class="sources-card">
+            <h3>Quick results</h3>
+            <ul id="sourceList" class="source-list">
+              <li>Use the AI search to get summarized web results.</li>
+            </ul>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
